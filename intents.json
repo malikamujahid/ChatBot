@@ -1,0 +1,140 @@
+{"intents": [
+
+  {
+  "tag": "name",
+  "patterns": ["My name is {name}", "Call me {name}", "I am {name}"],
+  "responses": ["Hello {name}! I'm Proton, your friendly chatbot.", "Nice to meet you, {name}! I'm Proton.", "Hi there, {name}! I'm Proton, your virtual assistant."]
+},
+
+  {"tag": "greetings",
+  "patterns":  ["hello", "hey", "Hi", "Heya", "Yo", "Good Day", "Greetings", "Whats up", "How is it going","Wassup pal"],
+  "responses": ["Hello!", "What can i do for you?" , "Hey", "How's the day going"]
+},
+{
+  "tag": "goodbye",
+  "patterns": [ "goodbye", "bye", "see you", "take care", "farewell", "later", "catch you later", "GB", "Talk to you later", "ttyl"],
+  "responses": [ "Goodbye! Take care.", "Farewell! Have a great day.", "See you next time!", "Bye-bye! Stay safe.", "Take care and see you soon!", "Until we meet again!"]
+},
+  {
+  "tag": "name",
+  "patterns": ["What's your name?", "What should I call you?", "Do you have a name?", "Name?", "Who are you?", "Tell me your name", "May I know your name?", "Name?"],
+  "responses": ["You can call me Proton.", "My name is Proton.", "I go by the name Proton.", "You're talking to Proton.", "I'm Proton, nice to meet you.", "I respond to the name Proton."]
+},
+
+{
+  "tag": "location",
+  "patterns": ["Where am I?", "What's my location?", "Can you tell me where I am?", "What's my current place?", "Do you know where I'm at?", "which place is this?", "Where is PG Block", "Where is PostGraduate Block", "What Department is this?"],
+  "responses": ["You are currently in PG Block.", "You're at PG Block.", "Your current location is PG Block CS Department.", "You are situated in PG Block.", "You've reached CS Department, PG Block.", "You are in PostGraduate Block.", "This is Computer Science Department in PG block"]
+},
+
+  {
+  "tag": "societies",
+  "patterns": [
+    "Computer Science department has any society?","Are there any societies?", "Tell me about the societies in the department.","Tell me about the societies", "What are the societies in our department?", "Can you list the societies?", "Are there any societies in our department?", "I want to know about the department's societies.", "societies", "Tell me about societies"],
+  "responses": [
+    "Certainly! Our department boasts three vibrant societies: IEE (Institute of Electrical and Electronics Engineers), ACM (Association for Computing Machinery), and CSS (Computer Science Society). These societies organize engaging events, workshops, and networking opportunities for students.", "Absolutely! The department is home to three prominent societies: IEE (Institute of Electrical and Electronics Engineers), ACM (Association for Computing Machinery), and CSS (Computer Science Society). These societies play a crucial role in enhancing your academic journey.", "You're in luck! Our department houses three dynamic societies: IEE (Institute of Electrical and Electronics Engineers), ACM (Association for Computing Machinery), and CSS (Computer Science Society). These societies contribute to a vibrant student experience through diverse activities and events.", "Get ready to explore! Among the highlights of our department are three outstanding societies: IEE (Institute of Electrical and Electronics Engineers), ACM (Association for Computing Machinery), and CSS (Computer Science Society). These societies offer a wide array of opportunities for personal and professional growth.", "Exciting times ahead! We have three thriving societies in our department: IEE (Institute of Electrical and Electronics Engineers), ACM (Association for Computing Machinery), and CSS (Computer Science Society). These societies host enriching events and foster a sense of community among students."]
+},
+{
+  "tag": "ACM",
+  "patterns": [
+    " ACM", "acm", "What acm", "What ACM","Tell acm", "Tell acm", "Tell me about ACM", "Tell me about acm","What do u know about ACM", "President ACM"
+  ],
+  "responses": [
+    "The ACM (Association for Computing Machinery) society is led by its president Sahil Asif. They organize various tech-related events, workshops, and activities for students."
+  ]
+},
+  {
+  "tag": "IEEE",
+  "patterns": [
+     "IEEE", "ieee","What IEEE", "What IEEE", "Tell ieee", "Tell IEEE","Tell me about IEEE", "Tell me about ieee","What do u know about IEEE", "President IEEE"
+  ],
+  "responses": [
+    "The IEEE (Institute of Electrical and Electronics Engineers) society is headed by its president Tayyab Nasir. They arrange a wide range of electrical and electronics events, seminars, and learning opportunities."
+  ]
+},
+  {
+  "tag": "CSS",
+  "patterns": [
+    "CSS","css","What CSS", "What css", "Tell css", "Tell CSS","Tell me about CSS", "Tell me about css","What do u know about CSS", "President CSS"
+  ],
+  "responses": [
+    "The CSS (Computer Science Society) is under the leadership of its president Faizan Naseem. They host programming competitions, coding workshops, and other activities to engage computer science enthusiasts."
+  ]
+},
+  {
+  "tag": "labs",
+  "patterns": [
+    "Tell me about the labs.", "What labs are available?", "Can you provide information about the labs?", "Lab details.", "Tell me about the department's labs."
+  ],
+  "responses": [
+    "Our department has two labs: the PG lab located in the basement and the main lab on the ground floor. The PG lab is equipped for postgraduate students to work on research and projects. The main lab on the ground floor is used for practical sessions, workshops, and group activities for undergraduate students."
+  ]
+},
+  {
+  "tag": "Help me",
+  "patterns": [
+    "How can u help me?", "What can u do", "Tell me something", "Help","how can u help"
+  ],
+
+  "responses": [
+    "I can help u regarding the information with respect to the societies, Labs and libraries in Computer Science Department", "I have information regarding societies and their presidents, Labs, and libraries in the CS department", " I know about Societies, Labs, and Libraries in Computer Science Department"
+  ]
+},
+  {
+  "tag": "pg",
+  "patterns": [
+    "PG lab.", "pg", "Pg", "PG Lab", "Basement", "basement"
+  ],
+  "responses": [
+    "The PG lab is located in the basement of the department. It's a well-equipped space for postgraduate students to conduct research, work on projects, and collaborate with fellow students."
+  ]
+},
+  {
+  "tag": "main",
+  "patterns": [
+    "main", "Main"
+
+  ],
+  "responses": [
+    "The main lab is situated on the ground floor of the department. It serves as a central hub for various practical sessions, workshops, and group activities for undergraduate students."
+  ]
+},
+  {
+    "tag": "About Me",
+    "patterns": [
+      "Tell me about yourself?",
+      "Who made you",
+      "Who are you",
+      "Who built you",
+      "You are developed by?"
+    ],
+    "responses": [
+      "Malika Mujahid built me up ;)",
+      "I am proton, i hold the information regarding Computer Science Department. I am developed by Malika Mujahid",
+      "I am Proton, Developed by Malika Mujahid. I can Guide you regarding Socities, Labs and libraries in my department"
+    ]
+  },
+{
+  "tag": "library",
+  "patterns": [
+    "Tell me about the libraries.",
+    "What libraries are there?",
+    "Can you provide information about the library?",
+    "Library details.",
+    "Tell me about the department's libraries.",
+    "Tell me about the PG block libraries."
+  ],
+  "responses": [
+    "Our department features two libraries located in the basement. One library is situated on the left side, and the other is on the right side. Both libraries offer a wide range of academic resources, books, research materials, and quiet study spaces for students."]
+}]}
+
+
+
+
+
+
+
+
+
+
+
