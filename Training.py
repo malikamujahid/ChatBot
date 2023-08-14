@@ -6,6 +6,8 @@ import tensorflow as tf
 import sys
 import nltk
 from nltk.stem import WordNetLemmatizer
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.callbacks import EarlyStopping
 
 # Download the wordnet resource before using the NLTK lemmatizer
 nltk.download('wordnet')
@@ -16,8 +18,9 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
 intents = json.loads(open('intents.json').read())
-print("Model training completed.")
+print("Model training started.")
 sys.stdout.flush()
+
 words = []
 classes = []
 documents = []
@@ -33,7 +36,6 @@ for intent in intents['intents']:
 
 words = [lemmatizer.lemmatize(word) for word in words if word not in ignoreLetters]
 words = sorted(set(words))
-
 classes = sorted(set(classes))
 
 pickle.dump(words, open('words.pkl', 'wb'))
@@ -59,16 +61,23 @@ training = np.array(training)
 trainX = training[:, :len(words)]
 trainY = training[:, len(words):]
 
-model = tf.keras.Sequential()
-model.add(tf.keras.layers.Dense(128, input_shape=(len(trainX[0]),), activation='relu'))
-model.add(tf.keras.layers.Dropout(0.5))
-model.add(tf.keras.layers.Dense(64, activation='relu'))
-model.add(tf.keras.layers.Dropout(0.5))
-model.add(tf.keras.layers.Dense(len(trainY[0]), activation='softmax'))
+# Split data into training and validation sets
+trainX, valX, trainY, valY = train_test_split(trainX, trainY, test_size=0.1, random_state=42)
+
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(128, input_shape=(len(trainX[0]),), activation='relu'),
+    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Dense(len(trainY[0]), activation='softmax')
+])
 
 sgd = tf.keras.optimizers.SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
-hist = model.fit(trainX, trainY, epochs=200, batch_size=5, verbose=1)
+# Implement early stopping
+early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
+
+hist = model.fit(trainX, trainY, validation_data=(valX, valY), epochs=200, batch_size=5, verbose=1, callbacks=[early_stopping])
 model.save('chatbot_model.h5', hist)
-print('Done')
+print('Model training completed.')
